@@ -1,25 +1,56 @@
-import logo from './logo.svg';
+import React, { useState }  from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Nominations from './componentes/Nominations';
 
-function App() {
+const App = () => {
+  const [movies, setMovies] = useState([
+    {
+            "Title": "In the Name of the Father",
+            "Year": "1993"
+        },
+        {
+            "Title": "Father of the Bride",
+            "Year": "1991"
+        },
+        {
+            "Title": "Father of the Bride Part II",
+            "Year": "1995"
+        },
+        {
+            "Title": "The Father",
+            "Year": "2020"
+        },
+        {
+            "Title": "My Father the Hero",
+            "Year": "1994"
+        },
+        {
+            "Title": "Father of the Year",
+            "Year": "2018"
+        },
+        {
+            "Title": "Father of the Bride",
+            "Year": "1950"
+        },
+        {
+            "Title": "The Great Father",
+            "Year": "2017"
+        },
+        {
+            "Title": "Dragon Ball Z: Bardock - The Father of Goku",
+            "Year": "1990"
+        },
+        {
+            "Title": "The Courtship of Eddie's Father",
+            "Year": "1963"
+        }
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  <div>
+    <Nominations movies = {movies} />
+  </div>)
+  ;
+};
 
 export default App;
