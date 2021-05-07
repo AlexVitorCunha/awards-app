@@ -1,56 +1,84 @@
-import React, { useState }  from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import Nominations from './componentes/Nominations';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Nominations from "./componentes/Nominations";
+import SearchBox from "./componentes/SearchBox";
+import SearchResults from "./componentes/SearchResults";
+
 
 const App = () => {
-  const [movies, setMovies] = useState([
-    {
-            "Title": "In the Name of the Father",
-            "Year": "1993"
-        },
-        {
-            "Title": "Father of the Bride",
-            "Year": "1991"
-        },
-        {
-            "Title": "Father of the Bride Part II",
-            "Year": "1995"
-        },
-        {
-            "Title": "The Father",
-            "Year": "2020"
-        },
-        {
-            "Title": "My Father the Hero",
-            "Year": "1994"
-        },
-        {
-            "Title": "Father of the Year",
-            "Year": "2018"
-        },
-        {
-            "Title": "Father of the Bride",
-            "Year": "1950"
-        },
-        {
-            "Title": "The Great Father",
-            "Year": "2017"
-        },
-        {
-            "Title": "Dragon Ball Z: Bardock - The Father of Goku",
-            "Year": "1990"
-        },
-        {
-            "Title": "The Courtship of Eddie's Father",
-            "Year": "1963"
+  const [movies, setMovies] = useState([]);
+  const [nominations, setNominations] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+  const getMovieRequest = async (searchValue) => {
+    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=e116be63&Type=movie`;
+
+    const response = await fetch(url);
+    const responseJson = await response.json();
+
+    if (responseJson.Search) {
+      setMovies(responseJson.Search);
+    }
+  };
+
+  useEffect(() => {
+    getMovieRequest(searchValue);
+  }, [searchValue]);
+
+  useEffect(() => {
+    const movieNominations = JSON.parse(
+      localStorage.getItem('current-nominations')
+    );
+
+    setNominations(movieNominations);
+  }, []);
+
+  const saveToLocalStorage = (items) =>{
+      localStorage.setItem('current-nominations', JSON.stringify(items));
+  }
+
+  const addNomination = (movie) => {
+    const newNominationList = [...nominations, movie];
+    if (newNominationList.length <= 5)
+        {setNominations(newNominationList);
+          saveToLocalStorage(newNominationList);
         }
-  ]);
+    else alert("Maxium amount of Nominations reached");
+  };
+
+  const deleteNomination = (movie) => {
+    const newNominationList = nominations.filter(
+        (nominations) => nominations.imdbID !== movie.imdbID
+    );
+
+    setNominations(newNominationList);
+    saveToLocalStorage(newNominationList);
+  }
+
   return (
-  <div>
-    <Nominations movies = {movies} />
-  </div>)
-  ;
+    <div>
+      <h1>The Shoppies</h1>
+      <section>
+        <h2>Movie title</h2>
+        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
+      </section>
+      <section>
+        <div>
+          <SearchResults
+            movies={movies}
+            currentSearch={searchValue}
+            handleNominationsClick={addNomination}
+          />
+        </div>
+        <div>
+          <Nominations
+            movies={nominations}
+            currentSearch={searchValue}
+            handleNominationsClick={deleteNomination}
+          />
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default App;

@@ -2,11 +2,13 @@ import React from 'react';
 
 const Nominations = (props) => {
     return (
-        <>
-            {props.movies.map((movie, index) => <div>
+        <ul>
+            <h3>Nominations</h3>
+            {props.movies.map((movie, index) => (<li>
                 <p>{movie.Title} ({movie.Year})</p>
-            </div>)}
-        </>
+                <button className="delete-nomination" onClick={() => props.handleNominationsClick(movie)}>Delete</button>
+            </li>))}
+        </ul>
     )
 }
 
