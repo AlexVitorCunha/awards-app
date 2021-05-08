@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/awards-app/static/css/main.795af6a3.chunk.css",
+    "main.js": "/awards-app/static/js/main.57f6a2ef.chunk.js",
+    "main.js.map": "/awards-app/static/js/main.57f6a2ef.chunk.js.map",
+    "runtime-main.js": "/awards-app/static/js/runtime-main.d3d846e7.js",
+    "runtime-main.js.map": "/awards-app/static/js/runtime-main.d3d846e7.js.map",
+    "static/js/2.a7778415.chunk.js": "/awards-app/static/js/2.a7778415.chunk.js",
+    "static/js/2.a7778415.chunk.js.map": "/awards-app/static/js/2.a7778415.chunk.js.map",
+    "static/js/3.86555f09.chunk.js": "/awards-app/static/js/3.86555f09.chunk.js",
+    "static/js/3.86555f09.chunk.js.map": "/awards-app/static/js/3.86555f09.chunk.js.map",
+    "index.html": "/awards-app/index.html",
+    "static/css/main.795af6a3.chunk.css.map": "/awards-app/static/css/main.795af6a3.chunk.css.map",
+    "static/js/2.a7778415.chunk.js.LICENSE.txt": "/awards-app/static/js/2.a7778415.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d3d846e7.js",
+    "static/js/2.a7778415.chunk.js",
+    "static/css/main.795af6a3.chunk.css",
+    "static/js/main.57f6a2ef.chunk.js"
+  ]
+}
