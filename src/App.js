@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Nominations from "./componentes/Nominations";
-import SearchBox from "./componentes/SearchBox";
-import SearchResults from "./componentes/SearchResults";
+import Nominations from "./components/Nominations";
+import SearchBox from "./components/SearchBox";
+import SearchResults from "./components/SearchResults";
 
 
 const App = () => {
@@ -47,7 +47,7 @@ const App = () => {
 
   const deleteNomination = (movie) => {
     const newNominationList = nominations.filter(
-        (nominations) => nominations.imdbID !== movie.imdbID
+        (nomination) => nomination.imdbID !== movie.imdbID
     );
 
     setNominations(newNominationList);
@@ -65,6 +65,7 @@ const App = () => {
         <div>
           <SearchResults
             movies={movies}
+            nominations={nominations}
             currentSearch={searchValue}
             handleNominationsClick={addNomination}
           />

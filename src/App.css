@@ -2,8 +2,19 @@ body{
   background: #FBF7ED;
 }
 
+h1, h2, h3{
+  color: #004C3F;
+}
+
 ul{
   list-style: none;
+}
+
+#result-list{
+  height: 88%;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .add-nomination{
@@ -14,4 +25,39 @@ ul{
 
 .add-nomination:hover{
   background-color: #004C3F;
+}
+
+.add-nomination:disabled{
+  background-color: gray;
+}
+
+section:nth-child(2){
+  background-color: white;
+}
+
+section:nth-child(3){
+  display: flex;
+  width: 100vw;
+  margin-top: 20px;
+}
+
+section:nth-child(3) > div{
+  background-color: white;
+  width: 30vw;
+  height: 500px;
+}
+section:nth-child(3) > div:nth-child(1){
+  margin-right: 20px;
+}
+
+ul > li{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 800px){
+  section:nth-child(3){
+    flex-direction: column;
+  }
+    
 }
