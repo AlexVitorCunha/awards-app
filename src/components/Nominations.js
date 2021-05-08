@@ -5,7 +5,7 @@ const Nominations = (props) => {
         <>
         <h3>Nominations</h3>
         <ul>
-            {props.movies.map((movie) => (<li>
+            {props.movies.map((movie, index) => (<li>
                 <p>{movie.Title} ({movie.Year})</p>
                 <button className="delete-nomination" onClick={() => props.handleNominationsClick(movie)}>Delete</button>
             </li>))}

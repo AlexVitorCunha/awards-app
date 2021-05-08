@@ -6,7 +6,7 @@ import SearchResults from "./components/SearchResults";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
-  const [nominations, setNominations] = useState([""]);
+  const [nominations, setNominations] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const getMovieRequest = async (searchValue) => {
     const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=e116be63&Type=movie`;
