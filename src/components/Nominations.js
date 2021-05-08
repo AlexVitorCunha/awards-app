@@ -14,7 +14,11 @@ const Nominations = (props) => {
         </>
     )
     }
-    
+    return(
+        <>
+        <h3>Nominations</h3>
+        </>  
+    )
 }
 
 export default Nominations;
