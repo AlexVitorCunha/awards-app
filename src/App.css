@@ -2,8 +2,28 @@ body{
   background: #FBF7ED;
 }
 
+#main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 h1, h2, h3{
   color: #004C3F;
+}
+
+input{
+  width: 60vw;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+input:focus {
+  outline: none;
 }
 
 ul{
@@ -12,15 +32,21 @@ ul{
 
 #result-list{
   height: 88%;
-    padding: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .add-nomination{
   background-color: #008060;
   color: white;
   border: none;
+  font-size: 1em;
+  border-radius: 4px;
+  font-weight: 700;
+  margin-left: 5px;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+  padding: 10px;
 }
 
 .add-nomination:hover{
@@ -31,33 +57,84 @@ ul{
   background-color: gray;
 }
 
+.delete-nomination{
+  background-color: #004C3F;
+  color: white;
+  border: none;
+  font-size: 1em;
+  border-radius: 4px;
+  font-weight: 700;
+  margin-left: 5px;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+  padding: 10px;
+}
+
+.delete-nomination:hover{
+  background-color: rgb(179, 2, 2);
+}
+
 section:nth-child(2){
+  display: flex;
+  flex-direction: column;
   background-color: white;
+  padding-bottom: 20px;
+  align-items: center;
+  width: 91vw;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
 }
 
 section:nth-child(3){
   display: flex;
-  width: 100vw;
+  width: 100%;
   margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
 }
 
 section:nth-child(3) > div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: white;
-  width: 30vw;
+  width: 45vw;
   height: 500px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
 }
 section:nth-child(3) > div:nth-child(1){
   margin-right: 20px;
+  margin-left: auto;
+}
+
+section:nth-child(3) > div:nth-child(2){
+  margin-right: auto;
 }
 
 ul > li{
   display: flex;
+  align-items: center;
   margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 @media screen and (max-width: 800px){
   section:nth-child(3){
     flex-direction: column;
+    width: 100%;
   }
-    
+
+  section:nth-child(3) > div{
+    width: 90vw;
+    margin-left: auto;
+  }
+
+  section:nth-child(3) > div:nth-child(1){
+    margin-right: auto;
+  }
+
+  section:nth-child(3) > div:nth-child(2){
+    margin-top: 20px;
+  }
 }

@@ -53,10 +53,10 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div id="main">
       <h1>The Shoppies</h1>
       <section>
-        <h2>Movie title</h2>
+        <h2>Movie Title Search</h2>
         <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
       </section>
       <section>
