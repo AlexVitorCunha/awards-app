@@ -27,8 +27,9 @@ const App = () => {
     const movieNominations = JSON.parse(
       localStorage.getItem("current-nominations")
     );
-
-    setNominations(movieNominations);
+      if(movieNominations){
+        setNominations(movieNominations);
+      }
   }, []);
 
   const saveToLocalStorage = (items) => {
