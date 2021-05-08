@@ -4,7 +4,6 @@ import Nominations from "./components/Nominations";
 import SearchBox from "./components/SearchBox";
 import SearchResults from "./components/SearchResults";
 
-
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [nominations, setNominations] = useState([]);
@@ -26,33 +25,32 @@ const App = () => {
 
   useEffect(() => {
     const movieNominations = JSON.parse(
-      localStorage.getItem('current-nominations')
+      localStorage.getItem("current-nominations")
     );
 
     setNominations(movieNominations);
   }, []);
 
-  const saveToLocalStorage = (items) =>{
-      localStorage.setItem('current-nominations', JSON.stringify(items));
-  }
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem("current-nominations", JSON.stringify(items));
+  };
 
   const addNomination = (movie) => {
     const newNominationList = [...nominations, movie];
-    if (newNominationList.length <= 5)
-        {setNominations(newNominationList);
-          saveToLocalStorage(newNominationList);
-        }
-    else alert("Maxium amount of Nominations reached");
+    if (newNominationList.length <= 5) {
+      setNominations(newNominationList);
+      saveToLocalStorage(newNominationList);
+    } else alert("Maxium amount of Nominations reached");
   };
 
   const deleteNomination = (movie) => {
     const newNominationList = nominations.filter(
-        (nomination) => nomination.imdbID !== movie.imdbID
+      (nomination) => nomination.imdbID !== movie.imdbID
     );
 
     setNominations(newNominationList);
     saveToLocalStorage(newNominationList);
-  }
+  };
 
   return (
     <div>
