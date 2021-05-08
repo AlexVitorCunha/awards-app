@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Nominations = (props) => {
-    return (
+    if(props.movies){
+        return (
         <>
         <h3>Nominations</h3>
         <ul>
@@ -12,6 +13,8 @@ const Nominations = (props) => {
         </ul>
         </>
     )
+    }
+    
 }
 
 export default Nominations;
